@@ -6,14 +6,18 @@ export default function ClassManagementNavCM() {
     background: "rgb(59, 130, 246)",
     color: "white",
   };
+
+  const navLinkStyle =
+    "flex justify-center items-center w-1/12 font-semibold rounded hover:bg-blue-500 hover:text-white duration-500";
+
   return (
     <div
       id="ClassManagementNavCM"
-      className="flex flex-wrap items-center sm:justify-start text-gray-800 mt-4"
+      className="flex flex-wrap items-center justify-center text-gray-800 mt-4 divide-x-2"
     >
       <NavLink
         to={"/campus-manager/class-management/register"}
-        className="flex justify-center items-center w-1/12 font-semibold rounded hover:bg-blue-500 hover:text-white duration-500"
+        className={navLinkStyle}
         style={({ isActive }) => (isActive ? activeStyle : undefined)}
       >
         <div className="flex items-center text-center h-12 text-sm">
@@ -23,7 +27,7 @@ export default function ClassManagementNavCM() {
 
       <NavLink
         to={"/campus-manager/class-management/setting"}
-        className="flex justify-center items-center w-1/12 font-semibold rounded hover:bg-blue-500 hover:text-white duration-500"
+        className={navLinkStyle}
         style={({ isActive }) => (isActive ? activeStyle : undefined)}
       >
         <div className="flex items-center text-center h-12 text-sm">

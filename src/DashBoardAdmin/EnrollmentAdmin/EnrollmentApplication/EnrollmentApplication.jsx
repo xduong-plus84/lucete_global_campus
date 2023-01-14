@@ -1,9 +1,55 @@
-import { Checkbox, Radio } from "antd";
+import { Checkbox, Input, Radio, Select } from "antd";
 import React from "react";
+
+const options = [];
+for (let i = 1; i < 36; i++) {
+  options.push({
+    label: "Student " + i,
+    value: "Student " + i,
+  });
+}
+
+const optionCampus = [
+  {
+    value: "campus1",
+    label: "Campus 1",
+  },
+  {
+    value: "campus2",
+    label: "Campus 2",
+  },
+  {
+    value: "campus3",
+    label: "Campus 3",
+  },
+  {
+    value: "campus4",
+    label: "Campus 4",
+  },
+];
+
+const optionStudentLevel = [
+  {
+    value: "sproutA",
+    label: "Sprout A",
+  },
+  {
+    value: "sproutB",
+    label: "Sprout B",
+  },
+  {
+    value: "bud",
+    label: "Bud",
+  },
+];
 
 export default function EnrollmentApplication() {
   const onChange = (e) => {
     console.log(`checked = ${e.target.checked}`);
+  };
+
+  const handleChange = (value) => {
+    console.log(`selected ${value}`);
   };
 
   const renderTable = () => {
@@ -97,23 +143,26 @@ export default function EnrollmentApplication() {
           <thead className="border-b-2 border-gray-200">
             <tr>
               <th className="w-2/12 p-2">Content</th>
-              <th className="w-2/12 p-2">Form</th>
               <th className="w-2/12 p-2">Details</th>
               <th className="w-2/12 p-2">Activate</th>
             </tr>
           </thead>
           <tbody className="border-b-2 border-gray-200">
             <tr>
+              <td className="py-2">Campus</td>
               <td className="py-2">
-                <Checkbox onChange={onChange}>Campus</Checkbox>
-              </td>
-              <td className="py-2">Options</td>
-              <td className="py-2">
-                <ul>
-                  <li>Yongho</li>
-                  <li>Magok</li>
-                  <li>Gaepo</li>
-                </ul>
+                <Input
+                  style={{
+                    width: "90%",
+                  }}
+                />
+                {/* <Select
+                  style={{
+                    width: "90%",
+                  }}
+                  onChange={handleChange}
+                  options={optionStudentLevel}
+                /> */}
               </td>
               <td className="py-2">
                 <Radio.Group onChange={onChange}>
@@ -125,11 +174,18 @@ export default function EnrollmentApplication() {
           </tbody>
           <tbody className="border-b-2 border-gray-200">
             <tr className="p-2">
+              <td className="py-2">Student Name</td>
               <td className="py-2">
-                <Checkbox onChange={onChange}>Student Name</Checkbox>
+                <Select
+                  mode="tags"
+                  allowClear
+                  style={{
+                    width: "90%",
+                  }}
+                  onChange={handleChange}
+                  options={options}
+                />
               </td>
-              <td className="py-2">Blank</td>
-              <td className="py-2">-</td>
               <td className="py-2">
                 <Radio.Group onChange={onChange}>
                   <Radio value={1}>Y</Radio>
@@ -140,16 +196,15 @@ export default function EnrollmentApplication() {
           </tbody>
           <tbody className="border-b-2 border-gray-200">
             <tr>
+              <td className="py-2">Student Level</td>
               <td className="py-2">
-                <Checkbox onChange={onChange}>Student Level</Checkbox>
-              </td>
-              <td className="py-2">Options</td>
-              <td className="py-2">
-                <ul>
-                  <li>SproutA</li>
-                  <li>SproutB</li>
-                  <li>Bud</li>
-                </ul>
+                <Select
+                  style={{
+                    width: "90%",
+                  }}
+                  onChange={handleChange}
+                  options={optionStudentLevel}
+                />
               </td>
               <td className="py-2">
                 <Radio.Group onChange={onChange}>

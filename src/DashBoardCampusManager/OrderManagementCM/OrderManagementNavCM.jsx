@@ -14,7 +14,7 @@ export default function OrderManagementNavCM() {
   return (
     <div
       id="OrderManagementNavCM"
-      className="flex flex-wrap items-center sm:justify-start text-gray-800 mt-4"
+      className="flex flex-wrap items-center justify-center text-gray-800 mt-4 divide-x-2"
     >
       <NavLink
         to={`${url}/order`}

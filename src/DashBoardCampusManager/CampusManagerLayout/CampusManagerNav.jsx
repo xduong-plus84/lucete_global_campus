@@ -13,7 +13,7 @@ export default function CampusManagerNav() {
   return (
     <div
       id="CampusManagerNav"
-      className="flex flex-wrap items-center sm:justify-center text-gray-800 mx-8 mt-8"
+      className="flex flex-wrap items-center justify-center text-gray-800 mt-4 divide-x-2"
     >
       {/* campus management -> Role management */}
       <NavLink

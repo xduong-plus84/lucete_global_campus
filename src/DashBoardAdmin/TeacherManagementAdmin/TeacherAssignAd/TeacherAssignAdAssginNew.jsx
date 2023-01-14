@@ -156,7 +156,7 @@ export default function TeacherAssignAdAssginNew() {
 
   return (
     <div id="TeacherAssignAdAssginNew">
-      <p>Vừa mới chọn ID: {assignID}</p>
+      <p>assignID: {assignID}</p>
       <ul className="flex flex-col justify-center items-center flex-wrap pt-4 pb-8 mb-4">
         <li className="flex my-3">
           <p className="font-bold mr-1 ml-4 w-32">Campus</p>
