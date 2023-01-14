@@ -68,19 +68,19 @@ export default function Header() {
             to={`/aboutUs`}
             className="mr-5 font-bold text-lg hover:text-red-500 duration-300"
           >
-            About us
+            {t("About us.1")}
           </NavLink>
           <NavLink
             to={`/myService`}
             className="mr-5 font-bold text-lg hover:text-red-500 duration-300"
           >
-            My service
+            {t("My service.1")}
           </NavLink>
           <NavLink
             to={`/contact`}
             className="mr-5 font-bold text-lg hover:text-red-500 duration-300"
           >
-            Contact
+            {t("Contact.1")}
           </NavLink>
         </nav>
         <Link

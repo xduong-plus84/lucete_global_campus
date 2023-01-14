@@ -25,7 +25,8 @@ const routesDefault = [
   },
   {
     path: "*",
-    element: <DemoUI />,
+    element: <Layout Component={HomePage} />,
+    // element: <DemoUI />,
   },
 ];
 

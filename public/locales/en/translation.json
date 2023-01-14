@@ -3,8 +3,31 @@
     "1": "EN"
   },
   "Home": {
-    "1": "Home",
-    "2": "HomePage"
+    "1": "Home"
+  },
+  "About us": {
+    "1": "About us"
+  },
+  "My service": {
+    "1": "My service"
+  },
+  "Contact": {
+    "1": "Contact"
+  },
+  "Hello to Lucete Global Campus": {
+    "1": "Hello to Lucete Global Campus"
+  },
+  "You live a new life for every language you speak": {
+    "1": "You live a new life for every language you speak"
+  },
+  "If you know only one language, you live only once": {
+    "1": "If you know only one language, you live only once"
+  },
+  "View courses": {
+    "1": "View courses"
+  },
+  "Message": {
+    "1": "Message"
   },
   "Why": {
     "1": "For watching this video"

@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { Carousel } from "antd";
 import { RightOutlined, LeftOutlined } from "@ant-design/icons";
 import "./homePageCarousel.css";
+import { useTranslation } from "react-i18next";
 
 // config
 const contentStyle = {
@@ -20,6 +21,7 @@ const contentStyle = {
 };
 
 export default function HomePageCarousel() {
+  const { t, i18n } = useTranslation();
   const ref = useRef();
   let slideTruoc = () => {
     ref.current.next();
@@ -45,18 +47,18 @@ export default function HomePageCarousel() {
             <div className="absolute inset-y-0 right-0 w-4/12">
               <div className="h-full flex flex-col justify-center items-start">
                 <h1 className="title-font sm:text-4xl text-3xl mb-4 font-bold text-gray-100">
-                  Hello to Lucete Global Campus
+                  {t("Hello to Lucete Global Campus.1")}
                 </h1>
-                <p className="mb-8 leading-relaxed">
-                  “You live a new life for every language you speak. If you know
-                  only one language, you live only once.”
+                <p className="mb-8 leading-relaxed pr-8">
+                  “{t("You live a new life for every language you speak.1")}.
+                  {t("If you know only one language, you live only once.1")}”
                 </p>
                 <div className="flex justify-center">
                   <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                    View courses
+                    {t("View courses.1")}
                   </button>
                   <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
-                    Message
+                    {t("Message.1")}
                   </button>
                 </div>
               </div>

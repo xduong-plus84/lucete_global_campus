@@ -9,8 +9,8 @@ export default function LanguageConfig() {
   const items = [
     { label: "English", key: "en" },
     { label: "Tiếng Việt", key: "vi" },
-    { label: "Tiếng Nhật", key: "jp" },
-    { label: "Tiếng Hàn", key: "kr" },
+    { label: "日本", key: "jp" },
+    { label: "한국인", key: "kr" },
   ];
 
   const handleMenuClick = (e) => {
