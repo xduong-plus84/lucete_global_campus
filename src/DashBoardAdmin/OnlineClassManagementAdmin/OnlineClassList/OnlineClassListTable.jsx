@@ -47,16 +47,16 @@ export default function OnlineClassListTable() {
                 <td className="p-4"></td>
               </tr>
               <tr className="divide-x h-16">
-                <td className="p-4 font-semibold">14:00~15:00</td>
+                <td className="p-4 font-semibold">14:50~16:00</td>
               </tr>
               <tr className="divide-x h-16">
-                <td className="p-4 font-semibold">14:00~15:00</td>
+                <td className="p-4 font-semibold">16:05~17:15</td>
               </tr>
               <tr className="divide-x h-16">
-                <td className="p-4 font-semibold">14:00~15:00</td>
+                <td className="p-4 font-semibold">17:40~19:00</td>
               </tr>
               <tr className="divide-x h-16">
-                <td className="p-4 font-semibold">14:00~15:00</td>
+                <td className="p-4 font-semibold">19:05~20:25</td>
               </tr>
             </tbody>
           </table>

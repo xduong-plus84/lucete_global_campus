@@ -13,7 +13,7 @@ export default function AdminNav() {
   return (
     <div
       id="AdminNav"
-      className="flex flex-wrap items-center sm:justify-center text-gray-800 mx-8 mt-8"
+      className="flex flex-wrap items-center sm:justify-center text-gray-800 mx-8 mt-8 divide-x-2"
     >
       {/* admin -> role management  */}
       <NavLink

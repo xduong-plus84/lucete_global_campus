@@ -13,7 +13,7 @@ export default function EnrollmentNav() {
   return (
     <div
       id="EnrollmentNav"
-      className="flex flex-wrap items-center sm:justify-start text-gray-800 mt-4"
+      className="flex flex-wrap items-center justify-center text-gray-800 mt-4 divide-x-2 mb-8"
     >
       <NavLink
         to={"/dash-board-admin/enrollment/application-management"}

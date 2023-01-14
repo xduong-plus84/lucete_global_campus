@@ -54,7 +54,7 @@ export default function OnlineClassRegister() {
           </button>
         </li>
         <li className="flex my-2">
-          <p className="font-bold mr-1 ml-4 w-40">Student Number</p>
+          <p className="font-bold mr-1 ml-4 w-40">Number Student</p>
           <Input
             style={{
               width: 250,

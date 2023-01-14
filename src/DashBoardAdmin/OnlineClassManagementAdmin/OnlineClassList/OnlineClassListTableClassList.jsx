@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const theadTable = [
@@ -11,11 +12,18 @@ const theadTable = [
   { title: "Teacher 1" },
   { title: "Teacher 2" },
   { title: "Current Level" },
-  { title: "Activate" },
+  { title: "Activate/Inactivate" },
   { title: "View" },
 ];
 
 export default function OnlineClassListTableClassList() {
+  let [activate1, setActivate1] = useState(false);
+  let [activate2, setActivate2] = useState(true);
+  let [activate3, setActivate3] = useState(true);
+  let [activate4, setActivate4] = useState(true);
+  let [activate5, setActivate5] = useState(true);
+  let [activate6, setActivate6] = useState(true);
+
   const navigate = useNavigate();
 
   const hanldeClickView = () => {
@@ -71,7 +79,12 @@ export default function OnlineClassListTableClassList() {
           <td className="p-1 text-center border-r border-gray-400">
             SproutA-1
           </td>
-          <td className="p-1 text-center border-r border-gray-400">Y</td>
+          <td
+            onClick={() => setActivate1((pre) => !pre)}
+            className="p-1 text-center border-r border-gray-400 cursor-pointer hover:opacity-50 duration-300"
+          >
+            {activate1 ? "Y" : "N"}
+          </td>
           <td className="p-1 text-center border-gray-400">
             <button onClick={() => hanldeClickView()}>
               <i class="fa fa-cog"></i>
@@ -98,8 +111,12 @@ export default function OnlineClassListTableClassList() {
           <td rowSpan={3} className="p-1 text-center border-r border-gray-400">
             Sprout A-2
           </td>
-          <td rowSpan={3} className="p-1 text-center border-r border-gray-400">
-            N
+          <td
+            onClick={() => setActivate2((pre) => !pre)}
+            rowSpan={3}
+            className="p-1 text-center border-r border-gray-400 cursor-pointer hover:opacity-50 duration-300"
+          >
+            {activate2 ? "Y" : "N"}
           </td>
           <td rowSpan={3} className="p-1 text-center border-gray-400">
             <button onClick={() => hanldeClickView()}>
@@ -146,8 +163,12 @@ export default function OnlineClassListTableClassList() {
           <td rowSpan={3} className="p-1 text-center border-r border-gray-400">
             Sprout B
           </td>
-          <td rowSpan={3} className="p-1 text-center border-r border-gray-400">
-            Y
+          <td
+            onClick={() => setActivate3((pre) => !pre)}
+            rowSpan={3}
+            className="p-1 text-center border-r border-gray-400 cursor-pointer hover:opacity-50 duration-300"
+          >
+            {activate3 ? "Y" : "N"}
           </td>
           <td rowSpan={3} className="p-1 text-center border-gray-400">
             <button onClick={() => hanldeClickView()}>
@@ -201,8 +222,12 @@ export default function OnlineClassListTableClassList() {
           <td rowSpan={3} className="p-1 text-center border-r border-gray-400">
             Sprout, B-1
           </td>
-          <td rowSpan={3} className="p-1 text-center border-r border-gray-400">
-            Y
+          <td
+            onClick={() => setActivate4((pre) => !pre)}
+            rowSpan={3}
+            className="p-1 text-center border-r border-gray-400 cursor-pointer hover:opacity-50 duration-300"
+          >
+            {activate4 ? "Y" : "N"}
           </td>
           <td rowSpan={3} className="p-1 text-center border-gray-400">
             <button onClick={() => hanldeClickView()}>
@@ -260,8 +285,12 @@ export default function OnlineClassListTableClassList() {
           <td rowSpan={5} className="p-1 text-center border-r border-gray-400">
             SproutA-2
           </td>
-          <td rowSpan={5} className="p-1 text-center border-r border-gray-400">
-            Y
+          <td
+            onClick={() => setActivate5((pre) => !pre)}
+            rowSpan={5}
+            className="p-1 text-center border-r border-gray-400 cursor-pointer hover:opacity-50 duration-300"
+          >
+            {activate5 ? "Y" : "N"}
           </td>
           <td rowSpan={5} className="p-1 text-center border-gray-400">
             <button onClick={() => hanldeClickView()}>
@@ -337,8 +366,12 @@ export default function OnlineClassListTableClassList() {
           <td rowSpan={2} className="p-1 text-center border-r border-gray-400">
             Bud B E3-1
           </td>
-          <td rowSpan={2} className="p-1 text-center border-r border-gray-400">
-            Y
+          <td
+            onClick={() => setActivate6((pre) => !pre)}
+            rowSpan={2}
+            className="p-1 text-center border-r border-gray-400 cursor-pointer hover:opacity-50 duration-300"
+          >
+            {activate6 ? "Y" : "N"}
           </td>
           <td rowSpan={2} className="p-1 text-center border-gray-400">
             <button onClick={() => hanldeClickView()}>

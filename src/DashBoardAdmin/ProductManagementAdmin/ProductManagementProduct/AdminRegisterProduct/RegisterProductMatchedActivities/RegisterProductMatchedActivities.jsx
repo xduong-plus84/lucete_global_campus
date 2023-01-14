@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Input, InputNumber, Table } from "antd";
+import { Form, Input, InputNumber, Modal, Table } from "antd";
 import "./registerProductMatchedActivities.css";
 
 const originData = [
@@ -65,16 +65,11 @@ export default function RegisterProductMatchedActivities() {
   const [data, setData] = useState(originData);
   const [editingKey, setEditingKey] = useState("");
   const [count, setCount] = useState(2);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  let [activity, setActivity] = useState();
 
   const handleClickAdd = () => {
-    const newData = {
-      key: count,
-      activity: `Edward King ${count}`,
-      type: `Coaching`,
-      time: 10,
-    };
-    setData([...data, newData]);
-    setCount(count + 1);
+    setIsModalOpen(true);
   };
 
   const handleClickDelete = (key) => {
@@ -201,12 +196,40 @@ export default function RegisterProductMatchedActivities() {
       }),
     };
   });
+
+  // action modal
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+    setActivity({ ...activity, key: count });
+    setData([...data, activity]);
+    setCount(count + 1);
+  };
+  const onChangeActivity = (e) => {
+    console.log("changed", e.target.value);
+    setActivity({
+      ...activity,
+      key: new Date().getTime().toString(),
+      activity: e.target.value,
+    });
+  };
+  const onChangeType = (e) => {
+    console.log("changed", e.target.value);
+    setActivity({ ...activity, type: e.target.value });
+  };
+  const onChangeTime = (value) => {
+    console.log("changed", value);
+    setActivity({ ...activity, time: value });
+  };
+
   return (
     <div className="registerMatchActivities">
       <div className="mb-2">
         <span className="font-bold">Matched Activities</span>
         <span className="mx-4">
-          (Total:{" "}
+          (<span>Total: </span>
           {data.reduce((total, current) => total + parseInt(current.time), 0)}
           mins )
         </span>
@@ -231,6 +254,41 @@ export default function RegisterProductMatchedActivities() {
           pagination={false}
         />
       </Form>
+
+      <Modal
+        title="Add activity"
+        open={isModalOpen}
+        onCancel={handleCancel}
+        footer={[
+          <button
+            key={"btnCancel"}
+            onClick={handleCancel}
+            className="ml-3 px-3 py-1 font-semibold border rounded border-transparent text-gray-700 hover:text-gray-50 hover:bg-red-500 duration-300"
+          >
+            Cancel
+          </button>,
+          <button
+            key={"btnOk"}
+            onClick={handleOk}
+            className="ml-3 px-3 py-1 font-semibold border rounded border-transparent bg-green-600 text-gray-50 hover:text-gray-50 hover:bg-green-500 duration-300"
+          >
+            Submit
+          </button>,
+        ]}
+      >
+        <div className="mb-4 flex items-center justify-between">
+          <span className="w-1/3">Activity Name</span>
+          <Input onChange={onChangeActivity} />
+        </div>
+        <div className="mb-4 flex items-center justify-between">
+          <span className="w-1/3">Type</span>
+          <Input onChange={onChangeType} />
+        </div>
+        <div className="mb-4 flex items-center justify-between">
+          <span className="w-1/3">Time (s)</span>
+          <InputNumber min={1} onChange={onChangeTime} className="w-full" />
+        </div>
+      </Modal>
     </div>
   );
 }
