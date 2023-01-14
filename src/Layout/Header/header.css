@@ -1,0 +1,7 @@
+#header a {
+  cursor: pointer;
+}
+
+#header .active {
+  color: rgb(239 68 68);
+}

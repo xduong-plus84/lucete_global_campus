@@ -1,0 +1,18 @@
+export const dataGems = [
+  { id: 1, img: "./imgs/gems/gem1.png", name: "Phonics-Angel Aura" },
+  { id: 2, img: "./imgs/gems/gem2.png", name: "E-Seed-Emerald" },
+  { id: 3, img: "./imgs/gems/gem3.png", name: "E-Sprout-Amazonite" },
+  { id: 4, img: "./imgs/gems/gem4.png", name: "E-Bud-Rose quartz" },
+  { id: 5, img: "./imgs/gems/gem5.png", name: "E4-Citrine" },
+  { id: 6, img: "./imgs/gems/gem6.png", name: "E5-Tiger eye" },
+  { id: 7, img: "./imgs/gems/gem7.png", name: "E6-Malachite" },
+  { id: 8, img: "./imgs/gems/gem8.png", name: "E7-Sunstone" },
+  { id: 9, img: "./imgs/gems/gem9.png", name: "E8-Labradorite" },
+  { id: 10, img: "./imgs/gems/gem10.png", name: "E9-Ruby" },
+  { id: 11, img: "./imgs/gems/gem11.png", name: "M11-Moonstone" },
+  { id: 12, img: "./imgs/gems/gem12.png", name: "M12-Howlite" },
+  { id: 13, img: "./imgs/gems/gem13.png", name: "M13-Larimar" },
+  { id: 14, img: "./imgs/gems/gem14.png", name: "M14-Amethyst" },
+  { id: 15, img: "./imgs/gems/gem15.png", name: "M15-Sapphire" },
+  { id: 16, img: "./imgs/gems/gem16.png", name: "Spec-Diamond" },
+];

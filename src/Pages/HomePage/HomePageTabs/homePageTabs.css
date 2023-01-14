@@ -1,0 +1,48 @@
+/* #rc-tabs-0-panel-ThongTinLopHoc {
+  padding: 50px;
+}
+
+#homePageTabs > div > div.ant-tabs-nav > div.ant-tabs-nav-wrap > div {
+  justify-content: space-between;
+  width: 100%;
+} */
+
+#homePageTabs {
+  min-height: 500px;
+}
+
+#homePageTabs .ant-tabs-nav-list {
+  width: 100%;
+}
+
+#homePageTabs .ant-tabs-bar {
+  background-color: blue;
+  position: fixed;
+  opacity: 12vh;
+  left: 5%;
+}
+
+#homePageTabs .ant-tabs-nav .ant-tabs-tab {
+  text-transform: uppercase;
+  width: 33.33%;
+  font-weight: bold;
+  letter-spacing: 1px;
+  justify-content: center;
+  color: rgb(34 197 94);
+}
+#homePageTabs .ant-tabs-nav .ant-tabs-tab:hover {
+  color: red;
+}
+
+#homePageTabs
+  .ant-tabs-nav
+  .ant-tabs-tab.ant-tabs-tab-active
+  .ant-tabs-tab-btn {
+  color: red;
+}
+#homePageTabs .ant-tabs-ink-bar.ant-tabs-ink-bar-animated {
+  background-color: red;
+}
+/* :where(.css-dev-only-do-not-override-14mysga).ant-tabs .ant-tabs-ink-bar {
+    background-color: violet;
+  } */

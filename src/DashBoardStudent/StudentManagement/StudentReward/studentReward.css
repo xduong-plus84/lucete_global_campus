@@ -1,0 +1,13 @@
+#popconfirmStudentRewardOn button:nth-child(2) {
+  background-color: #1677ff;
+}
+#popconfirmStudentRewardOn button:hover:nth-child(2) {
+  background-color: #4096ff;
+}
+
+#popconfirmStudentRewardOff button:nth-child(2) {
+  background-color: #1677ff;
+}
+#popconfirmStudentRewardOff button:hover:nth-child(2) {
+  background-color: #4096ff;
+}

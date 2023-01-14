@@ -1,0 +1,30 @@
+/* custom arrow in carousel  */
+#homepageCarousel .arrowStyle {
+  font-size: 70px;
+  position: absolute;
+  top: 45%;
+  z-index: 10;
+}
+#homepageCarousel .pauseStyle {
+  transform: translateX(-50%);
+}
+#homepageCarousel .pauseStyle:hover {
+  transform: translateX(-50%) scale(1.5);
+  opacity: 0.5;
+  transition-duration: 0.5s;
+}
+#homepageCarousel .pauseStyle:hover h3 img {
+  filter: invert(100%);
+}
+
+#homepageCarousel .arrowStyle.arrowLeft:hover {
+  opacity: 0.5;
+  transform: translateX(-20px);
+  transition-duration: 0.5s;
+}
+
+#homepageCarousel .arrowStyle.arrowRight:hover {
+  opacity: 0.5;
+  transform: translateX(20px);
+  transition-duration: 0.5s;
+}

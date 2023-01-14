@@ -1,0 +1,6 @@
+#parentMemo ul li:nth-child(odd) .ant-timeline-item-content .ant-alert {
+  background-color: #e96cb1;
+}
+#parentMemo ul li:nth-child(even) .ant-timeline-item-content .ant-alert {
+  background-color: #f1c8d0;
+}
