@@ -51,15 +51,26 @@ const columns = [
     title: "Review",
     key: "review",
     render: (_, record) => (
-      <Space size="middle" className="flex items-center">
-        <Rate defaultValue={5} tooltips={desc} />
-        <TextArea
-          style={{
-            height: 20,
-          }}
-          onChange={onChange}
-        />
-      </Space>
+      <div className="flex items-end">
+        <div className="flex flex-col justify-end min-w-fit h-20">
+          <div className="flex items-end">
+            <span className="inline-block w-20">Preparation</span>
+            <Rate defaultValue={5} tooltips={desc} className="min-w-fit mx-2" />
+          </div>
+          <div className="flex items-end">
+            <span className="inline-block w-20">Attitude</span>
+            <Rate defaultValue={5} tooltips={desc} className="min-w-fit mx-2" />
+          </div>
+          <div className="flex items-end">
+            <span className="inline-block w-20">Participation</span>
+            <Rate defaultValue={5} tooltips={desc} className="min-w-fit mx-2" />
+          </div>
+        </div>
+        <TextArea onChange={onChange} style={{ height: "6rem" }} />
+        <button className="px-3 py-1 ml-2 font-semibold border rounded border-transparent bg-green-600 text-gray-50 hover:text-gray-50 hover:bg-green-500 duration-300">
+          Submit
+        </button>
+      </div>
     ),
   },
 ];

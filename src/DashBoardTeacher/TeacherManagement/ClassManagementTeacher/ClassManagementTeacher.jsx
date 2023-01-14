@@ -22,21 +22,12 @@ export default function ClassManagementTeacher() {
   console.log("isTeacher: ", isTeacher);
 
   const dispatch = useDispatch();
-  const [curDT, setCurDT] = useState();
   const [isCheckOut, setIsCheckOut] = useState(false);
   // const [isModalOpen, setIsModalOpen] = useState(false);
   let isOpenModal = useSelector(
     (state) => state.reducerModalReviewTeacher.isOpenModal
   );
   console.log("isOpenModal: ", isOpenModal);
-  useEffect(() => {
-    // setInterval(() => {
-    let time = new Date()
-      .toLocaleTimeString()
-      .replace("/.*(d{2}:d{2}:d{2}).*/", "$1");
-    setCurDT(time);
-    // }, 1000);
-  }, []);
 
   const handleCheckIn = () => {
     console.log("checkin");
@@ -118,10 +109,6 @@ export default function ClassManagementTeacher() {
               </Button>
             </a>
           </Space>
-        </div>
-        <div className="ml-8 flex items-center">
-          <ClockCircleOutlined className="mx-2" />
-          <div className="text-red-500 text-xl font-bold">{curDT}</div>
         </div>
       </div>
       <div className="current-class flex items-center py-4 border-b-2 border-black">

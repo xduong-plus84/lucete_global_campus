@@ -16,13 +16,13 @@ export default function SalaryCalculatorTeacher() {
       />
       <div style={{ margin: "50px 0" }}>
         <p>
-          Lương tuần:
+          Weekly salary:
           <span style={{ color: "red", fontSize: "1.5rem", margin: "0 5px" }}>
             50$
           </span>
         </p>
         <p>
-          Lương tháng:
+          Monthly salary:
           <span style={{ color: "red", fontSize: "1.5rem", margin: "0 5px" }}>
             100$
           </span>
