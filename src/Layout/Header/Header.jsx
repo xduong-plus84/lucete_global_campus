@@ -30,12 +30,12 @@ export default function Header() {
         <>
           <NavLink to={`/login`}>
             <button className="inline-flex items-center bg-red-100 border-0 py-1 px-3 focus:outline-none hover:bg-red-500 hover:text-white rounded text-base mt-4 md:mt-0 font-bold duration-500">
-              Login
+              {t("Login.1")}
             </button>
           </NavLink>
           <NavLink to={`/registration`}>
             <button className="inline-flex items-center border-2 border-transparent py-1 px-3 ml-2 focus:outline-none rounded text-base mt-4 md:mt-0 hover:text-red-500 hover:border-red-500 duration-500">
-              Sign up
+              {t("Sign up.1")}
               <svg
                 fill="none"
                 stroke="currentColor"
