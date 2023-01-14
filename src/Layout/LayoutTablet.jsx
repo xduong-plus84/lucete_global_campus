@@ -6,10 +6,8 @@ export default function LayoutTablet() {
       id="LayoutTablet"
       className="text-xl font-bold flex flex-col justify-center items-center h-screen"
     >
-      <p className="text-center">Phiên bản này không hỗ trợ Tablet</p>
-      <p className="text-center">
-        Chuyển sang Laptop để có trải nghiệm tốt hơn !!
-      </p>
+      <p className="text-center">This version does not support Tablet</p>
+      <p className="text-center">Use a Laptop for a better experience!!</p>
     </div>
   );
 }
