@@ -15,6 +15,9 @@ import {
   setOpenModalReviewAction,
 } from "../../../redux/actions/actionModalReviewTeacher";
 
+const url =
+  "https://app.gather.town/app/QF4JJeHKOT9QvDT4/GUESSING%20GAME%20-%20Sprout%20B2";
+
 export default function StudentClassManagement() {
   const dispatch = useDispatch();
   const [isCheckOut, setIsCheckOut] = useState(false);
@@ -43,7 +46,7 @@ export default function StudentClassManagement() {
   };
 
   return (
-    <div className="flex w-full">
+    <div className="flex w-full py-2">
       <div className="mt-4 mb-12 w-3/4">
         <div className="current-class flex items-center py-2 border-b-2 border-black">
           <div className="flex flex-col justify-center">
@@ -83,36 +86,20 @@ export default function StudentClassManagement() {
             </Space>
 
             <Space className="py-2" wrap>
-              <a
-                href="https://www.youtube.com/watch?v=tR2kj9MLVkU&ab_channel=VTVTh%E1%BB%83Thao"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
+              <a href={url} target="_blank" rel="noreferrer noopener">
                 <Button onClick={handleCheckIn}>Server 1</Button>
               </a>
-              <a
-                href="https://www.youtube.com/watch?v=tR2kj9MLVkU&ab_channel=VTVTh%E1%BB%83Thao"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
+              <a href={url} target="_blank" rel="noreferrer noopener">
                 <Button onClick={handleCheckIn} disabled>
                   Server 2
                 </Button>
               </a>
-              <a
-                href="https://www.youtube.com/watch?v=tR2kj9MLVkU&ab_channel=VTVTh%E1%BB%83Thao"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
+              <a href={url} target="_blank" rel="noreferrer noopener">
                 <Button onClick={handleCheckIn} disabled>
                   Server 3
                 </Button>
               </a>
-              <a
-                href="https://www.youtube.com/watch?v=tR2kj9MLVkU&ab_channel=VTVTh%E1%BB%83Thao"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
+              <a href={url} target="_blank" rel="noreferrer noopener">
                 <Button onClick={handleCheckIn} disabled>
                   Server 4
                 </Button>

@@ -1,5 +1,5 @@
 import React from "react";
-import { message, Popconfirm, Space, Table, Tag } from "antd";
+import { Input, message, Popconfirm, Space, Table, Tag } from "antd";
 import { dataParentsReward } from "./dataParentsReward";
 import "./parentsReward.css";
 
@@ -100,9 +100,12 @@ export default function ParentsReward() {
       <div style={{ width: columnWidth * 3 }}>
         <Table columns={columns} dataSource={data} pagination={false} />
       </div>
-      <p className="italic text-red-500 m-4">
-        *You can only receive either offline or online gifts
-      </p>
+      <div className="p-4">
+        <p className="italic text-red-500 mb-4">
+          *You can only receive either offline or online gifts
+        </p>
+        <Input placeholder="Enter code here" />
+      </div>
     </div>
   );
 }

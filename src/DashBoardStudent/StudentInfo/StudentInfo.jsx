@@ -21,7 +21,7 @@ export default function StudentInfo() {
   console.log("maHocSinh: ", maHocSinh);
   // console.log("tenCongViec: ", tenCongViec);
   return (
-    <div className="p-4 border-r-2 w-64 mr-2">
+    <div className="m-4 p-5 border-r-2 w-64">
       <div className="headerAvatar flex flex-col items-center justify-center">
         <div className="relative">
           <Avatar
@@ -56,7 +56,7 @@ export default function StudentInfo() {
         {/* <Progress percent={100} status="success" className="m-0" /> */}
       </div>
 
-      <Input placeholder="NHẬP MÃ CODE" className="mt-1" size="small" />
+      <Input placeholder="Enter Code" className="mt-1" size="small" />
 
       <div className="grid grid-cols-1 my-2">
         <div className="flex items-center py-1">
@@ -67,11 +67,11 @@ export default function StudentInfo() {
           <SketchOutlined />
           <span className="ml-2">Diamond</span>
         </div>
-        <div className="flex items-center border-b-2">
+        <div className="flex items-center">
           <StarOutlined />
           <span className=" ml-2">1,000</span>
         </div>
-        <h1 className="text-center font-bold text-white p-2 bg-red-500 rounded-t-md">
+        <h1 className="mt-4 text-center font-bold text-white p-2 bg-red-500 rounded-t-md">
           Announcements
         </h1>
         <div className="overflow-y-scroll" style={{ height: 300 }}>

@@ -16,6 +16,9 @@ import {
 } from "../../../redux/actions/actionModalReviewTeacher";
 import { serviceLocalStorageUser } from "../../../util/demoLocalStorage/demoLocalStorage";
 
+const url =
+  "https://app.gather.town/app/QF4JJeHKOT9QvDT4/GUESSING%20GAME%20-%20Sprout%20B2";
+
 export default function ClassManagementTeacher() {
   let userInfor = serviceLocalStorageUser.user.get();
   const isTeacher = userInfor.role == "teacher";
@@ -72,38 +75,22 @@ export default function ClassManagementTeacher() {
           </Space>
 
           <Space className="py-2" wrap>
-            <a
-              href="https://www.youtube.com/watch?v=tR2kj9MLVkU&ab_channel=VTVTh%E1%BB%83Thao"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
+            <a href={url} target="_blank" rel="noreferrer noopener">
               <Button onClick={handleCheckIn} disabled={!isTeacher}>
                 Server 1
               </Button>
             </a>
-            <a
-              href="https://www.youtube.com/watch?v=tR2kj9MLVkU&ab_channel=VTVTh%E1%BB%83Thao"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
+            <a href={url} target="_blank" rel="noreferrer noopener">
               <Button onClick={handleCheckIn} disabled>
                 Server 2
               </Button>
             </a>
-            <a
-              href="https://www.youtube.com/watch?v=tR2kj9MLVkU&ab_channel=VTVTh%E1%BB%83Thao"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
+            <a href={url} target="_blank" rel="noreferrer noopener">
               <Button onClick={handleCheckIn} disabled>
                 Server 3
               </Button>
             </a>
-            <a
-              href="https://www.youtube.com/watch?v=tR2kj9MLVkU&ab_channel=VTVTh%E1%BB%83Thao"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
+            <a href={url} target="_blank" rel="noreferrer noopener">
               <Button onClick={handleCheckIn} disabled>
                 Server 4
               </Button>
@@ -135,38 +122,22 @@ export default function ClassManagementTeacher() {
           </Space>
 
           <Space className="py-2" wrap>
-            <a
-              href="https://www.youtube.com/watch?v=tR2kj9MLVkU&ab_channel=VTVTh%E1%BB%83Thao"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
+            <a href={url} target="_blank" rel="noreferrer noopener">
               <Button onClick={handleCheckIn} disabled={!isTeacher}>
                 Server 1
               </Button>
             </a>
-            <a
-              href="https://www.youtube.com/watch?v=tR2kj9MLVkU&ab_channel=VTVTh%E1%BB%83Thao"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
+            <a href={url} target="_blank" rel="noreferrer noopener">
               <Button onClick={handleCheckIn} disabled>
                 Server 2
               </Button>
             </a>
-            <a
-              href="https://www.youtube.com/watch?v=tR2kj9MLVkU&ab_channel=VTVTh%E1%BB%83Thao"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
+            <a href={url} target="_blank" rel="noreferrer noopener">
               <Button onClick={handleCheckIn} disabled>
                 Server 3
               </Button>
             </a>
-            <a
-              href="https://www.youtube.com/watch?v=tR2kj9MLVkU&ab_channel=VTVTh%E1%BB%83Thao"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
+            <a href={url} target="_blank" rel="noreferrer noopener">
               <Button onClick={handleCheckIn} disabled>
                 Server 4
               </Button>

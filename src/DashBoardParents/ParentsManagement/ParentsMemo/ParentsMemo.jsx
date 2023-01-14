@@ -1,14 +1,26 @@
 import React from "react";
 import { Alert, Button, Timeline, Input } from "antd";
 import { useState } from "react";
-
 import "./parentMemo.css";
-
 const { TextArea } = Input;
+
+let dataParentMemo = [
+  { id: 1, content: "Content 1", date: "1/05/2023" },
+  { id: 2, content: "Content 2", date: "1/06/2023" },
+  { id: 3, content: "Content 3", date: "1/07/2023" },
+  { id: 4, content: "Content 4", date: "1/08/2023" },
+  { id: 5, content: "Content 5", date: "1/09/2023" },
+  { id: 6, content: "Content 6", date: "1/10/2023" },
+  { id: 7, content: "Content 7", date: "1/11/2023" },
+];
+
+let dataParentMemoReverse = dataParentMemo.reverse();
 
 export default function ParentsMemo() {
   const [valueTextArea, setValueTextArea] = useState("");
   const [idMemo, setIdMemo] = useState();
+  const [isEdit, setIsEdit] = useState(false);
+  let [dataMemo, setDataMemo] = useState(dataParentMemo);
 
   const onChange = (e) => {
     console.log("Change:", e.target.value);
@@ -18,14 +30,27 @@ export default function ParentsMemo() {
   const handleEditClick = (id, content) => {
     setValueTextArea(content);
     setIdMemo(id);
+    setIsEdit(true);
   };
 
   const handleClickSubmit = () => {
-    console.log({ idMemo });
-    const index = dataParentMemoReverse.findIndex((item) => item.id === idMemo);
-    console.log("index: ", index);
-    dataParentMemoReverse[index].content = valueTextArea;
-    setValueTextArea("");
+    if (isEdit) {
+      console.log({ idMemo });
+      const index = dataMemo.findIndex((item) => item.id === idMemo);
+      console.log("index: ", index);
+      dataMemo[index].content = valueTextArea;
+      setValueTextArea("");
+    } else {
+      let id = new Date().getTime().toString();
+      let test = new Date().toLocaleDateString();
+      let newMemo = {
+        id: id,
+        content: valueTextArea,
+        date: test,
+      };
+      let dataMemoUpdate = [newMemo, ...dataMemo];
+      setDataMemo(dataMemoUpdate);
+    }
   };
 
   return (
@@ -47,8 +72,7 @@ export default function ParentsMemo() {
       </div>
       <div className="w-2/3 ml-24 mt-5">
         <Timeline mode="left">
-          {dataParentMemoReverse.map((item, index) => {
-            console.log("index: ", index);
+          {dataMemo.map((item, index) => {
             return (
               <Timeline.Item key={index} label={item.date}>
                 <Alert
@@ -70,15 +94,3 @@ export default function ParentsMemo() {
     </div>
   );
 }
-
-let dataParentMemo = [
-  { id: 1, content: "Content 1", date: "01-Dec-2022" },
-  { id: 2, content: "Content 2", date: "02-Dec-2022" },
-  { id: 3, content: "Content 3", date: "03-Dec-2022" },
-  { id: 4, content: "Content 4", date: "04-Dec-2022" },
-  { id: 5, content: "Content 5", date: "05-Dec-2022" },
-  { id: 6, content: "Content 6", date: "06-Dec-2022" },
-  { id: 7, content: "Content 7", date: "07-Dec-2022" },
-];
-
-let dataParentMemoReverse = dataParentMemo.reverse();

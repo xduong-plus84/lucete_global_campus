@@ -1,5 +1,14 @@
 import React from "react";
-import { Button, message, Popconfirm, Space, Table, Tag, Tooltip } from "antd";
+import {
+  Button,
+  Input,
+  message,
+  Popconfirm,
+  Space,
+  Table,
+  Tag,
+  Tooltip,
+} from "antd";
 import { dataStudentReward } from "./dataStudentReward";
 import "./studentReward.css";
 import { useDispatch } from "react-redux";
@@ -103,9 +112,12 @@ export default function StudentReward() {
       <div style={{ width: columnWidth * 3 }}>
         <Table columns={columns} dataSource={data} pagination={false} />
       </div>
-      <p className="italic text-red-500 m-4">
-        *You can only receive either offline or online gifts
-      </p>
+      <div className="p-4">
+        <p className="italic text-red-500 mb-4">
+          *You can only receive either offline or online gifts
+        </p>
+        <Input placeholder="Enter code here" />
+      </div>
     </div>
   );
 }
