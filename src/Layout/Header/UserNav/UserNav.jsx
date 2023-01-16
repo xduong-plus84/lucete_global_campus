@@ -146,6 +146,7 @@ export default function UserNav() {
         }}
         onOpenChange={handleOpenChange}
         open={open}
+        placement="bottomRight"
       >
         <Space className="cursor-pointer">
           <img
