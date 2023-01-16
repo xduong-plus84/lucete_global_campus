@@ -5,22 +5,21 @@ import LayoutMobie from "./LayoutMobie";
 import LayoutTablet from "./LayoutTablet";
 
 export default function Layout(props) {
-  console.log("props: ", props);
   let { Component } = props;
 
   return (
     <div>
-      {/* <DesktopView> */}
-      <LayoutDesktop Component={Component} />
-      {/* </DesktopView> */}
+      <DesktopView>
+        <LayoutDesktop Component={Component} />
+      </DesktopView>
 
-      {/* <TabletView> */}
-      {/* <LayoutTablet /> */}
-      {/* </TabletView> */}
+      <TabletView>
+        <LayoutTablet />
+      </TabletView>
 
-      {/* <MobileView> */}
-      {/* <LayoutMobie /> */}
-      {/* </MobileView> */}
+      <MobileView>
+        <LayoutMobie />
+      </MobileView>
     </div>
   );
 }
