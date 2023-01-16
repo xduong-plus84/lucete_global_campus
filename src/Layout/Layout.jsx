@@ -5,7 +5,6 @@ import LayoutMobie from "./LayoutMobie";
 import LayoutTablet from "./LayoutTablet";
 
 export default function Layout(props) {
-  console.log("props: ", props);
   let { Component } = props;
 
   return (

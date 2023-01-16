@@ -40,7 +40,6 @@ export default function PageLogin() {
       password: "",
     },
     onSubmit: (thongTinDangNhap) => {
-      console.log("thongTinDangNhap: ", thongTinDangNhap);
       // serviceNguoiDung
       //   .dangNhap(thongTinDangNhap)
       //   .then((res) => {
@@ -56,7 +55,6 @@ export default function PageLogin() {
 
       // serviceLocalStorageUser.user.set(person5);
       // navigate("/");
-      console.log("login");
       let { username, password } = thongTinDangNhap;
 
       if (password != "") {
