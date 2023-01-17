@@ -16,7 +16,7 @@ export default function AdminNav() {
       className="flex flex-wrap items-center sm:justify-center text-gray-800 mx-8 mt-8 divide-x-2"
     >
       {/* admin -> role management  */}
-      <NavLink
+      {/* <NavLink
         to={"/dash-board-admin/role-management"}
         className={navLinkStyle}
         style={({ isActive }) => (isActive ? activeStyle : undefined)}
@@ -24,9 +24,9 @@ export default function AdminNav() {
         <div className="flex items-center text-center h-12 text-sm">
           Role <br /> Management
         </div>
-      </NavLink>
+      </NavLink> */}
       {/* admin -> campus management  */}
-      <NavLink
+      {/* <NavLink
         to={"/dash-board-admin/campus-management"}
         className={navLinkStyle}
         style={({ isActive }) => (isActive ? activeStyle : undefined)}
@@ -34,7 +34,7 @@ export default function AdminNav() {
         <div className="flex items-center text-center h-12 text-sm">
           Campus <br /> Management
         </div>
-      </NavLink>
+      </NavLink> */}
       {/* admin -> online class management  */}
       <NavLink
         to={"/dash-board-admin/online-class-management"}
@@ -56,7 +56,7 @@ export default function AdminNav() {
         </div>
       </NavLink>
       {/* admin -> study planner  */}
-      <NavLink
+      {/* <NavLink
         to={"/dash-board-admin/study-planner"}
         className={navLinkStyle}
         style={({ isActive }) => (isActive ? activeStyle : undefined)}
@@ -64,7 +64,7 @@ export default function AdminNav() {
         <div className="flex items-center justify-center text-center h-12 text-sm">
           Study <br /> Planner
         </div>
-      </NavLink>
+      </NavLink> */}
       {/* admin -> student management  */}
       <NavLink
         to={"/dash-board-admin/student-management"}
@@ -86,7 +86,7 @@ export default function AdminNav() {
         </div>
       </NavLink>
       {/* admin -> learning management  */}
-      <NavLink
+      {/* <NavLink
         to={"/dash-board-admin/learning-management"}
         className={navLinkStyle}
         style={({ isActive }) => (isActive ? activeStyle : undefined)}
@@ -94,9 +94,9 @@ export default function AdminNav() {
         <div className="flex items-center text-center h-12 text-sm">
           Learning <br /> Management
         </div>
-      </NavLink>
+      </NavLink> */}
       {/* admin -> order management  */}
-      <NavLink
+      {/* <NavLink
         to={"/dash-board-admin/order-management"}
         className={navLinkStyle}
         style={({ isActive }) => (isActive ? activeStyle : undefined)}
@@ -104,7 +104,7 @@ export default function AdminNav() {
         <div className="flex items-center text-center h-12 text-sm">
           Order <br /> Management
         </div>
-      </NavLink>
+      </NavLink> */}
       {/* admin -> teacher management  */}
       <NavLink
         to={"/dash-board-admin/teacher-management"}
@@ -116,7 +116,7 @@ export default function AdminNav() {
         </div>
       </NavLink>
       {/* admin -> point management  */}
-      <NavLink
+      {/* <NavLink
         to={"/dash-board-admin/point-management"}
         className={navLinkStyle}
         style={({ isActive }) => (isActive ? activeStyle : undefined)}
@@ -124,7 +124,7 @@ export default function AdminNav() {
         <div className="flex items-center text-center h-12 text-sm">
           Point <br /> Management
         </div>
-      </NavLink>
+      </NavLink> */}
       {/* admin -> archive */}
       <NavLink
         to={"/dash-board-admin/archive"}
