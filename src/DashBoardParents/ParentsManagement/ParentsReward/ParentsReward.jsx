@@ -104,6 +104,9 @@ export default function ParentsReward() {
         <p className="italic text-red-500 mb-4">
           *You can only receive either offline or online gifts
         </p>
+        <p className="mb-4">
+          Reward Point: <span>500</span>
+        </p>
         <Input placeholder="Enter code here" />
       </div>
     </div>

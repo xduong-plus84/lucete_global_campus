@@ -8,12 +8,11 @@ for (let i = 0; i < 15; i++) {
     key: i,
     id: i + 1,
     "no.": `${i}`,
-    campus: `${i % 2 ? "Background Discussion" : "Word Check"}`,
-    name: `${i % 2 ? "Sprout-E8 Reading" : "Sprout-E8 Writing"}`,
+    campus: `${i % 2 ? "Magok" : "Yongho"}`,
+    name: `${i % 2 ? "Woo Hyuck" : "Eun Chae"}`,
     id: `SWg ${i}`,
-    level: `${i + 10} mins`,
-    assigned: `${i % 2 ? "Y" : "N"}`,
-    active: `${i % 2 ? "Y" : "N"}`,
+    level: `${i % 2 ? "Ekong" : "E Level"}`,
+    widthdrawalDate: `${i % 2 ? "2022.08.09" : "2022.10.31"}`,
   });
 }
 
@@ -37,21 +36,10 @@ const optionProducts = [
 ];
 
 export default function StudentManagementWithdrawal() {
-  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
-
-  const onSelectChange = (newSelectedRowKeys) => {
-    console.log("selectedRowKeys changed: ", newSelectedRowKeys);
-    setSelectedRowKeys(newSelectedRowKeys);
-  };
-
   const onChangeDate = (date, dateString) => {
     console.log(date, dateString);
   };
 
-  const rowSelection = {
-    selectedRowKeys,
-    onChange: onSelectChange,
-  };
   const columns = [
     {
       title: "No.",
@@ -71,18 +59,8 @@ export default function StudentManagementWithdrawal() {
       dataIndex: "id",
     },
     {
-      title: "Level",
-      dataIndex: "level",
-    },
-    {
-      title: "Assigned",
-      dataIndex: "assigned",
-      width: "5%",
-    },
-    {
-      title: "Active",
-      dataIndex: "active",
-      width: "5%",
+      title: "Withdrawal Date",
+      dataIndex: "widthdrawalDate",
     },
     {
       title: "Edit",
@@ -157,7 +135,7 @@ export default function StudentManagementWithdrawal() {
           </button>
         </div>
       </div>
-      <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+      <Table columns={columns} dataSource={data} />
     </div>
   );
 }

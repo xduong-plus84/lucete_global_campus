@@ -2,17 +2,20 @@ import { DatePicker, Select, Table } from "antd";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
+const url =
+  "/dash-board-admin/teacher-management/class-report/class-report-detail";
+
 const data = [];
 for (let i = 1; i < 5; i++) {
   data.push({
     key: i,
     id: i,
     no: `${i}`,
-    sort: `${i % 2 ? "Class" : "Incentive"}`,
     teacher: `${i % 2 ? "Simone" : "Robyn"}`,
     class: `${i % 2 ? "E8-MW1A" : "M14-T1B"}`,
-    detail: `${i % 2 ? "Regular Class" : "Class Feedback"}`,
-    price: `${i % 2 ? 50 + i : 30 + i}`,
+    student: `${i % 2 ? "Ji in" : "Na Yeon"}`,
+    campus: `${i % 2 ? "Jeju" : "Yongho"}`,
+    status: `${i % 2 ? "Done" : "Undone"}`,
     date: `${i % 2 ? "2022.12.06" : "2022.12.01"}`,
   });
 }
@@ -43,9 +46,7 @@ export default function TeacherClassReportAd() {
 
   const handleClickEdit = (teacherID) => {
     console.log("bam edit");
-    navigate(
-      `/dash-board-admin/teacher-management/class-report/class-report-detail/${teacherID}`
-    );
+    navigate(`${url}/${teacherID}`);
   };
 
   const handleChange = (value) => {
@@ -66,7 +67,7 @@ export default function TeacherClassReportAd() {
 
   const handleClickSearch = () => {
     console.log("click search");
-    navigate(`/dash-board-admin/teacher-management/payment/payment-detail/0`);
+    navigate(`${url}/0`);
     // setSearch((pre) => !pre);
   };
   const columns = [
@@ -74,10 +75,6 @@ export default function TeacherClassReportAd() {
       title: "No.",
       dataIndex: "no",
       width: "5%",
-    },
-    {
-      title: "Sort",
-      dataIndex: "sort",
     },
     {
       title: "Teacher",
@@ -88,12 +85,16 @@ export default function TeacherClassReportAd() {
       dataIndex: "class",
     },
     {
-      title: "Detail",
-      dataIndex: "detail",
+      title: "Student",
+      dataIndex: "student",
     },
     {
-      title: "Price ($)",
-      dataIndex: "price",
+      title: "Campus",
+      dataIndex: "campus",
+    },
+    {
+      title: "Status",
+      dataIndex: "status",
     },
     {
       title: "Date",

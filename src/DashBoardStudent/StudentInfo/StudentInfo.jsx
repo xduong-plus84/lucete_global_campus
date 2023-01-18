@@ -52,11 +52,11 @@ export default function StudentInfo() {
             <EditOutlined className="text-2xl" />
           </button>
         </div>
-        <Progress percent={90} status="active" className="m-0" />
+        {/* <Progress percent={90} status="active" className="m-0" /> */}
         {/* <Progress percent={100} status="success" className="m-0" /> */}
       </div>
 
-      <Input placeholder="Enter Code" className="mt-1" size="small" />
+      {/* <Input placeholder="Enter Code" className="mt-1" size="small" /> */}
 
       <div className="grid grid-cols-1 my-2">
         <div className="flex items-center py-1">

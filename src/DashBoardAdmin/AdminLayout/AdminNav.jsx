@@ -26,7 +26,7 @@ export default function AdminNav() {
         </div>
       </NavLink> */}
       {/* admin -> campus management  */}
-      {/* <NavLink
+      <NavLink
         to={"/dash-board-admin/campus-management"}
         className={navLinkStyle}
         style={({ isActive }) => (isActive ? activeStyle : undefined)}
@@ -34,7 +34,7 @@ export default function AdminNav() {
         <div className="flex items-center text-center h-12 text-sm">
           Campus <br /> Management
         </div>
-      </NavLink> */}
+      </NavLink>
       {/* admin -> online class management  */}
       <NavLink
         to={"/dash-board-admin/online-class-management"}

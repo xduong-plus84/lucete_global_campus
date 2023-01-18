@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { Input, Select, Table } from "antd";
 import { NavLink, useNavigate } from "react-router-dom";
 
+const url = "/dash-board-admin/teacher-management/management/management-detail";
+
 const data = [];
-for (let i = 0; i < 5; i++) {
+for (let i = 1; i < 5; i++) {
   data.push({
     key: i,
     no: `${i}`,
-    sort: "Online",
+    role: "Online",
     name: `${i % 2 ? "Simon" : "Robyn"}`,
     id: `${i % 2 ? "gcteacher2" : "gcteacher5"}`,
     contry: "South Africa",
@@ -44,14 +46,34 @@ const optionCampus = [
 
 export default function TeacherManagementList() {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+  let [dataRender, setDataRender] = useState(data);
   const navigate = useNavigate();
 
   const handleClickEdit = (teacherID) => {
     console.log("bam edit");
-    navigate(
-      `/dash-board-admin/teacher-management/management/management-detail/${teacherID}`
-    );
+    navigate(`${url}/${teacherID}`);
   };
+
+  const handleClickInactive = () => {
+    let dataUpdate = [...dataRender];
+    selectedRowKeys.map((key) => {
+      console.log("key: ", key);
+      console.log("dataUpdate: ", dataUpdate);
+      let foundIndex = dataUpdate.findIndex((data) => data.key == key);
+
+      console.log("foundIndex: ", foundIndex);
+
+      if (foundIndex != -1) {
+        dataUpdate[foundIndex].active = "N";
+        dataUpdate[foundIndex].key += new Date().getTime().toString();
+      }
+    });
+    console.log("dataUpdate: ", dataUpdate);
+
+    setDataRender(dataUpdate);
+    setSelectedRowKeys([]);
+  };
+
   const onSelectChange = (newSelectedRowKeys) => {
     console.log("selectedRowKeys changed: ", newSelectedRowKeys);
     setSelectedRowKeys(newSelectedRowKeys);
@@ -60,6 +82,7 @@ export default function TeacherManagementList() {
     selectedRowKeys,
     onChange: onSelectChange,
   };
+  const hasSelected = selectedRowKeys.length > 0;
   const columns = [
     {
       title: "No.",
@@ -67,8 +90,8 @@ export default function TeacherManagementList() {
       width: "5%",
     },
     {
-      title: "Sort",
-      dataIndex: "sort",
+      title: "Role",
+      dataIndex: "role",
     },
     {
       title: "Name",
@@ -99,7 +122,6 @@ export default function TeacherManagementList() {
       title: "Edit",
       key: "edit",
       render: (_, record) => {
-        console.log(record);
         return (
           <button onClick={() => handleClickEdit(record.no)}>
             <i className="fa fa-cog"></i>
@@ -113,16 +135,20 @@ export default function TeacherManagementList() {
     <div id="TeacherManagementList">
       <div className="flex flex-wrap justify-between items-center">
         <div className="action_left">
-          <NavLink
-            to={"/dash-board-admin/role-management/actions-role-management/0"}
-          >
+          <NavLink to={`${url}/0`}>
             <button className="px-3 py-1 my-4 font-semibold border rounded border-transparent bg-green-600 text-gray-50 hover:text-gray-50 hover:bg-green-500 duration-300">
               Register
             </button>
           </NavLink>
-          <button className="px-3 py-1 my-4 font-semibold border rounded border-gray-600 text-gray-600 bg-gray-50 hover:text-gray-50 hover:bg-red-600 hover:border-transparent duration-300 ml-3">
+          <button
+            onClick={() => handleClickInactive()}
+            className="px-3 py-1 my-4 font-semibold border rounded border-gray-600 text-gray-600 bg-gray-50 hover:text-gray-50 hover:bg-red-600 hover:border-transparent duration-300 ml-3"
+          >
             Inactivate
           </button>
+          <span className="ml-2">
+            {hasSelected ? `Selected ${selectedRowKeys.length} items` : ""}
+          </span>
         </div>
         <div className="action_right">
           <span className="font-bold mr-1 ml-4">Sort:</span>
@@ -176,7 +202,11 @@ export default function TeacherManagementList() {
           </button>
         </div>
       </div>
-      <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+      <Table
+        rowSelection={rowSelection}
+        columns={columns}
+        dataSource={dataRender}
+      />
     </div>
   );
 }

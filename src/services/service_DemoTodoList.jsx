@@ -10,4 +10,8 @@ export const service_DemoTodoList = {
     let uri = `/todos/${task.id}`;
     return https.put(uri, task);
   },
+  incompleteTask: (task) => {
+    let uri = `/todos/${task.id}`;
+    return https.put(uri, task);
+  },
 };

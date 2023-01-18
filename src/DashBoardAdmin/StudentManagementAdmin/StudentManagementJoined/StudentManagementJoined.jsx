@@ -8,10 +8,10 @@ for (let i = 0; i < 15; i++) {
     key: i,
     id: i + 1,
     "no.": `${i}`,
-    campus: `${i % 2 ? "Background Discussion" : "Word Check"}`,
-    name: `${i % 2 ? "Sprout-E8 Reading" : "Sprout-E8 Writing"}`,
+    campus: `${i % 2 ? "Magok" : "Yongho"}`,
+    name: `${i % 2 ? "Woo Hyuck" : "Eun Chae"}`,
     id: `SWg ${i}`,
-    level: `${i + 10} mins`,
+    level: `${i % 2 ? "Ekong" : "E Level"}`,
     assigned: `${i % 2 ? "Y" : "N"}`,
     active: `${i % 2 ? "Y" : "N"}`,
   });
@@ -44,6 +44,7 @@ const optionClasses = [
 
 export default function StudentManagementJoined() {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+  let [dataRender, setDataRender] = useState(data);
 
   const onSelectChange = (newSelectedRowKeys) => {
     console.log("selectedRowKeys changed: ", newSelectedRowKeys);
@@ -102,6 +103,20 @@ export default function StudentManagementJoined() {
     },
   ];
 
+  const handleClickInactive = () => {
+    let dataUpdate = [...dataRender];
+    selectedRowKeys.map((key) => {
+      let foundIndex = dataUpdate.findIndex((data) => data.key == key);
+
+      if (foundIndex != -1) {
+        dataUpdate[foundIndex].active = "N";
+        dataUpdate[foundIndex].key += new Date().getTime().toString();
+      }
+    });
+    setDataRender(dataUpdate);
+    setSelectedRowKeys([]);
+  };
+
   return (
     <div id="StudentManagementJoined">
       <div className="flex flex-wrap justify-between items-center">
@@ -113,10 +128,13 @@ export default function StudentManagementJoined() {
               Add New Student
             </button>
           </NavLink>
-          <button className="px-3 py-1 my-4 font-semibold border rounded border-gray-600 text-gray-600 bg-gray-50 hover:text-gray-50 hover:bg-red-600 hover:border-transparent duration-300 ml-3">
+          <button
+            onClick={() => handleClickInactive()}
+            className="px-3 py-1 my-4 font-semibold border rounded border-gray-600 text-gray-600 bg-gray-50 hover:text-gray-50 hover:bg-red-600 hover:border-transparent duration-300 ml-3"
+          >
             Inactivate
           </button>
-          <span>
+          <span className="ml-2">
             {hasSelected ? `Selected ${selectedRowKeys.length} items` : ""}
           </span>
         </div>
@@ -169,7 +187,11 @@ export default function StudentManagementJoined() {
           </button>
         </div>
       </div>
-      <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+      <Table
+        rowSelection={rowSelection}
+        columns={columns}
+        dataSource={dataRender}
+      />
     </div>
   );
 }

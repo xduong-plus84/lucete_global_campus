@@ -1,22 +1,27 @@
 import React, { useState } from "react";
-import { Form, Input, InputNumber, Modal, Table } from "antd";
-import "./registerPackageMatchedActivities.css";
+import { Form, Input, InputNumber, Table } from "antd";
+import "./pointManagement.css";
 
 const originData = [
   {
     key: "1",
-    activity: "Sprout~E8 Reading",
-    time: 10,
+    studentName: "Student 1",
+    score: 10,
   },
   {
     key: "2",
-    activity: "Sprout~E8 Writing",
-    time: 10,
+    studentName: "Student 2",
+    score: 10,
   },
   {
     key: "3",
-    activity: "E Level LAB",
-    time: 20,
+    studentName: "Student 3",
+    score: 20,
+  },
+  {
+    key: "4",
+    studentName: "Student 4",
+    score: 15,
   },
 ];
 
@@ -52,22 +57,12 @@ const EditableCell = ({
   );
 };
 
-export default function RegisterPackageMatchedActivities() {
+export default function PointManagementClass(props) {
+  let { idClass } = props;
+
   const [form] = Form.useForm();
   const [data, setData] = useState(originData);
   const [editingKey, setEditingKey] = useState("");
-  const [count, setCount] = useState(2);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  let [activity, setActivity] = useState();
-
-  const handleClickAdd = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleClickDelete = (key) => {
-    const newData = data.filter((item) => item.key !== key);
-    setData(newData);
-  };
 
   const isEditing = (record) => record.key === editingKey;
 
@@ -110,17 +105,17 @@ export default function RegisterPackageMatchedActivities() {
 
   const columns = [
     {
-      title: "",
-      dataIndex: "activity",
-      width: "60%",
+      title: "Student Name",
+      dataIndex: "studentName",
+      width: "50%",
       editable: true,
     },
     {
-      title: "Time",
-      dataIndex: "time",
-      width: "20%",
+      title: "Score",
+      dataIndex: "score",
+      width: "30%",
       editable: true,
-      render: (_, record) => <span>{record.time} mins</span>,
+      render: (_, record) => <span>{record.score}</span>,
     },
     {
       title: "Edit",
@@ -153,7 +148,7 @@ export default function RegisterPackageMatchedActivities() {
             >
               <i className="fa fa-pen"></i>
             </button>
-            <button
+            {/* <button
               disabled={editingKey !== ""}
               onClick={() => handleClickDelete(record.key)}
               className={`${
@@ -161,7 +156,7 @@ export default function RegisterPackageMatchedActivities() {
               } mx-2 hover:text-red-500 duration-300`}
             >
               <i className="fa fa-times"></i>
-            </button>
+            </button> */}
           </>
         );
       },
@@ -183,42 +178,12 @@ export default function RegisterPackageMatchedActivities() {
     };
   });
 
-  // action modal
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
-  const handleOk = () => {
-    setIsModalOpen(false);
-    setActivity({ ...activity, key: count });
-    setData([...data, activity]);
-    setCount(count + 1);
-  };
-  const onChangeActivity = (e) => {
-    console.log("changed", e.target.value);
-    setActivity({
-      ...activity,
-      key: new Date().getTime().toString(),
-      activity: e.target.value,
-    });
-  };
-  const onChangeTime = (value) => {
-    console.log("changed", value);
-    setActivity({ ...activity, time: value });
-  };
   return (
-    <div className="registerMatchActivities">
-      <div className="mb-2">
-        <span className="font-bold">Matched Products</span>
-        <span className="mx-4">
-          ( {data.reduce((total, current) => total + current.time, 0)} mins )
-        </span>
-        <button
-          onClick={handleClickAdd}
-          className="text-xl font-bold hover:text-green-600 duration-300"
-        >
-          <i className="fa fa-plus"></i>
-        </button>
-      </div>
+    <div className="pointManagement w-1/2 mx-auto">
+      <p className="mb-2">
+        idClass: <span className="text-red-500 font-medium">{idClass}</span>
+      </p>
+
       <Form form={form} component={false}>
         <Table
           components={{
@@ -233,36 +198,6 @@ export default function RegisterPackageMatchedActivities() {
           pagination={false}
         />
       </Form>
-      <Modal
-        title="Add activity"
-        open={isModalOpen}
-        onCancel={handleCancel}
-        footer={[
-          <button
-            key={"btnCancel"}
-            onClick={handleCancel}
-            className="ml-3 px-3 py-1 font-semibold border rounded border-transparent text-gray-700 hover:text-gray-50 hover:bg-red-500 duration-300"
-          >
-            Cancel
-          </button>,
-          <button
-            key={"btnOk"}
-            onClick={handleOk}
-            className="ml-3 px-3 py-1 font-semibold border rounded border-transparent bg-green-600 text-gray-50 hover:text-gray-50 hover:bg-green-500 duration-300"
-          >
-            Submit
-          </button>,
-        ]}
-      >
-        <div className="mb-4 flex items-center justify-between">
-          <span className="w-1/3">Activity Name</span>
-          <Input onChange={onChangeActivity} />
-        </div>
-        <div className="mb-4 flex items-center justify-between">
-          <span className="w-1/3">Time (s)</span>
-          <InputNumber min={1} onChange={onChangeTime} className="w-full" />
-        </div>
-      </Modal>
     </div>
   );
 }

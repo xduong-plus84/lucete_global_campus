@@ -9,6 +9,7 @@ import TeachingMaterial from "./TeachingMaterial/TeachingMaterial";
 import TeacherReward from "./TeacherReward/TeacherReward";
 import WorldChat from "../../Pages/WorldChat/WorldChat";
 import { serviceLocalStorageUser } from "../../util/demoLocalStorage/demoLocalStorage";
+import PointManagement from "./PointManagement/PointManagement";
 
 export default function TeacherManagement() {
   let userInfor = serviceLocalStorageUser.user.get();
@@ -61,6 +62,12 @@ export default function TeacherManagement() {
       label: "World Chat",
       key: "world-chat",
       children: <WorldChat />,
+      disabled: !isTeacher,
+    },
+    {
+      label: "Poin Management",
+      key: "point-management",
+      children: <PointManagement />,
       disabled: !isTeacher,
     },
   ];

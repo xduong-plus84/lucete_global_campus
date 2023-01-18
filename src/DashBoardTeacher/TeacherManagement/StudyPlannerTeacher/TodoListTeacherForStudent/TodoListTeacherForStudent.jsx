@@ -17,13 +17,17 @@ export default function TodoListTeacherForStudent() {
   const { taskList } = useSelector((state) => state.reducer_DemoTodoList);
 
   const handleDone = (task) => {
-    const taskUpdate = { ...task, isComplete: true };
+    const taskUpdate = { ...task, status: "done" };
+    dispatch(doneTask_API(taskUpdate));
+  };
+  const handleIncomplete = (task) => {
+    const taskUpdate = { ...task, status: "incomplete" };
     dispatch(doneTask_API(taskUpdate));
   };
 
   let renderListToDo = () => {
     return taskList
-      .filter((task) => !task.isComplete)
+      .filter((task) => task.status === "todo")
       .map((task, index) => {
         return (
           <li key={index} className="flex justify-center space-x-2">
@@ -38,9 +42,20 @@ export default function TodoListTeacherForStudent() {
               </div>
 
               <div className="flex flex-col pt-4 items-end">
-                <Button className="mr-2" onClick={() => handleDone(task)}>
-                  Done
-                </Button>
+                <div>
+                  <button
+                    onClick={() => handleDone(task)}
+                    className="w-16 font-semibold border rounded border-transparent bg-purple-600 text-gray-50 hover:text-gray-50 hover:bg-gray-500 duration-300 mr-2"
+                  >
+                    Done
+                  </button>
+                  <button
+                    onClick={() => handleIncomplete(task)}
+                    className="px-2 font-semibold border rounded border-transparent bg-red-600 text-gray-50 hover:text-gray-50 hover:bg-gray-500 duration-300 mr-2"
+                  >
+                    Incomplete
+                  </button>
+                </div>
 
                 <div>
                   <span className="italic text-xs opacity-85 mt-2">
@@ -58,7 +73,7 @@ export default function TodoListTeacherForStudent() {
   };
   let renderListDone = () => {
     return taskList
-      .filter((task) => task.isComplete)
+      .filter((task) => task.status === "done")
       .map((task, index) => {
         return (
           <li key={index} className="flex justify-center space-x-2">
@@ -76,6 +91,43 @@ export default function TodoListTeacherForStudent() {
                 <Tag className="my-2" color="magenta">
                   Stephen
                 </Tag>
+              </div>
+            </div>
+          </li>
+        );
+      });
+  };
+  let renderListIncomplete = () => {
+    return taskList
+      .filter((task) => task.status === "incomplete")
+      .map((task, index) => {
+        return (
+          <li key={index} className="flex justify-center space-x-2">
+            <div className="flex items-start shadow-md w-full">
+              <div className="flex flex-1 flex-col p-4 border-l-8 border-red-600">
+                <span className="font-bold text-lg">{task.title}</span>
+                <span className="text-xs text-gray-600">
+                  note something here
+                </span>
+              </div>
+              <div className="flex flex-col pt-4 items-end">
+                <div>
+                  <button
+                    onClick={() => handleDone(task)}
+                    className="w-16 font-semibold border rounded border-transparent bg-purple-600 text-gray-50 hover:text-gray-50 hover:bg-gray-500 duration-300 mr-2"
+                  >
+                    Done
+                  </button>
+                </div>
+
+                <div>
+                  <span className="italic text-xs opacity-85 mt-2">
+                    31/1/2023
+                  </span>
+                  <Tag className="m-2" color="magenta">
+                    Stephen
+                  </Tag>
+                </div>
               </div>
             </div>
           </li>
@@ -139,24 +191,7 @@ export default function TodoListTeacherForStudent() {
             </div>
             <div className="flex flex-col items-center justify-center py-8 bg-gray-50">
               <ul className="self-stretch flex-1 space-y-2">
-                <li className="flex justify-center space-x-2">
-                  <div className="flex items-start shadow-md w-full">
-                    <div className="flex flex-1 flex-col p-4 border-l-8 border-red-600">
-                      <span className="font-bold text-lg">Reading 1</span>
-                      <span className="text-xs text-gray-600">
-                        note something here
-                      </span>
-                    </div>
-                    <div className="flex flex-col pt-4">
-                      <span className="italic text-xs opacity-85 mt-2">
-                        31/1/2023
-                      </span>
-                      <Tag className="my-2" color="magenta">
-                        Stephen
-                      </Tag>
-                    </div>
-                  </div>
-                </li>
+                {renderListIncomplete()}
               </ul>
             </div>
           </div>

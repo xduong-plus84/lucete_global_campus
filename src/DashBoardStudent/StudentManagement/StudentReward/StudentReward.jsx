@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  Button,
-  Input,
-  message,
-  Popconfirm,
-  Space,
-  Table,
-  Tag,
-  Tooltip,
-} from "antd";
+import { Input, message, Popconfirm, Table, Tag } from "antd";
 import { dataStudentReward } from "./dataStudentReward";
 import "./studentReward.css";
 import { useDispatch } from "react-redux";
@@ -115,6 +106,9 @@ export default function StudentReward() {
       <div className="p-4">
         <p className="italic text-red-500 mb-4">
           *You can only receive either offline or online gifts
+        </p>
+        <p className="mb-4">
+          Reward Point: <span>500</span>
         </p>
         <Input placeholder="Enter code here" />
       </div>

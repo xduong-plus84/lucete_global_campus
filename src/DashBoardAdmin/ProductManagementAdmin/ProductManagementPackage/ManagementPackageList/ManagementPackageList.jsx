@@ -8,10 +8,9 @@ for (let i = 0; i < 15; i++) {
     key: i,
     id: i + 1,
     "no.": `${i}`,
-    package: `${i % 2 ? "Y" : "N"}`,
-    name: "Edward",
-    startLevel: "Level 1",
-    endLevel: `Level ${i + 3}`,
+    name: `${i % 2 ? "Combo A-1 ~ E3-1" : "Combo E5-1 ~ E8-2"}`,
+    startLevel: `${i % 2 ? "Ekong" : "E Level"}`,
+    endLevel: `${i % 2 ? "E Level" : "E Level"}`,
     active: `${i % 2 ? "Y" : "N"}`,
   });
 }
@@ -29,6 +28,7 @@ const optionLevels = [
 
 export default function ManagementPackageList() {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+  let [dataRender, setDataRender] = useState(data);
 
   const onSelectChange = (newSelectedRowKeys) => {
     console.log("selectedRowKeys changed: ", newSelectedRowKeys);
@@ -75,6 +75,20 @@ export default function ManagementPackageList() {
     },
   ];
 
+  const handleClickInactive = () => {
+    let dataUpdate = [...dataRender];
+    selectedRowKeys.map((key) => {
+      let foundIndex = dataUpdate.findIndex((data) => data.key == key);
+
+      if (foundIndex != -1) {
+        dataUpdate[foundIndex].active = "N";
+        dataUpdate[foundIndex].key += new Date().getTime().toString();
+      }
+    });
+    setDataRender(dataUpdate);
+    setSelectedRowKeys([]);
+  };
+
   return (
     <div id="ManagementPackageList">
       <div className="flex flex-wrap justify-between items-center">
@@ -89,10 +103,13 @@ export default function ManagementPackageList() {
             </button>
           </NavLink>
 
-          <button className="px-3 py-1 my-4 font-semibold border rounded border-gray-600 text-gray-600 bg-gray-50 hover:text-gray-50 hover:bg-red-600 hover:border-transparent duration-300 ml-3">
+          <button
+            onClick={() => handleClickInactive()}
+            className="px-3 py-1 my-4 font-semibold border rounded border-gray-600 text-gray-600 bg-gray-50 hover:text-gray-50 hover:bg-red-600 hover:border-transparent duration-300 ml-3"
+          >
             Inactivate
           </button>
-          <span>
+          <span className="ml-2">
             {hasSelected ? `Selected ${selectedRowKeys.length} items` : ""}
           </span>
         </div>
@@ -137,7 +154,11 @@ export default function ManagementPackageList() {
         </div>
       </div>
       <Outlet />
-      <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+      <Table
+        rowSelection={rowSelection}
+        columns={columns}
+        dataSource={dataRender}
+      />
     </div>
   );
 }

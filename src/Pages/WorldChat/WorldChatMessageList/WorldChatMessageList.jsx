@@ -1,8 +1,4 @@
-import { Alert, Avatar } from "antd";
-import { UserOutlined } from "@ant-design/icons";
 import React, { useEffect } from "react";
-import { dataDemoChatBox } from "../../../util/dataDemoChatBox";
-import { useState } from "react";
 
 const styleAvatar = {
   width: 40,

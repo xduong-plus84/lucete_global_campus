@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Select, Table } from "antd";
 import { NavLink, Outlet } from "react-router-dom";
 
+const url = "/dash-board-admin/product-management/product/actions-product";
+
 const data = [];
 for (let i = 1; i < 15; i++) {
   data.push({
@@ -9,7 +11,7 @@ for (let i = 1; i < 15; i++) {
     "no.": `${i}`,
     id: i + 1,
     package: `${i % 2 ? "Y" : "N"}`,
-    name: "Edward",
+    name: "Sprout~E8 Reading",
     startLevel: "Level 1",
     endLevel: `Level ${i + 3}`,
     active: `${i % 2 ? "Y" : "N"}`,
@@ -29,6 +31,7 @@ const optionLevels = [
 
 export default function ManagementProductList() {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+  let [dataRender, setDataRender] = useState(data);
 
   const onSelectChange = (newSelectedRowKeys) => {
     console.log("selectedRowKeys changed: ", newSelectedRowKeys);
@@ -69,9 +72,7 @@ export default function ManagementProductList() {
       key: "action",
       render: (_, record) => {
         return (
-          <NavLink
-            to={`/dash-board-admin/product-management/product/actions-product/${record.id}`}
-          >
+          <NavLink to={`${url}/${record.id}`}>
             <i className="fa fa-cog"></i>
           </NavLink>
         );
@@ -79,23 +80,37 @@ export default function ManagementProductList() {
     },
   ];
 
+  const handleClickInactive = () => {
+    let dataUpdate = [...dataRender];
+    selectedRowKeys.map((key) => {
+      let foundIndex = dataUpdate.findIndex((data) => data.key == key);
+
+      if (foundIndex != -1) {
+        dataUpdate[foundIndex].active = "N";
+        dataUpdate[foundIndex].key += new Date().getTime().toString();
+      }
+    });
+    setDataRender(dataUpdate);
+    setSelectedRowKeys([]);
+  };
+
+  console.log("render");
   return (
     <div id="ManagementProductList">
       <div className="flex flex-wrap justify-between items-center">
         <div className="action_left">
-          <NavLink
-            to={
-              "/dash-board-admin/product-management/product/actions-product/0"
-            }
-          >
+          <NavLink to={`${url}/0`}>
             <button className="px-3 py-1 my-4 font-semibold border rounded border-transparent bg-green-600 text-gray-50 hover:text-gray-50 hover:bg-green-500 duration-300">
               Add New Product
             </button>
           </NavLink>
-          <button className="px-3 py-1 my-4 font-semibold border rounded border-gray-600 text-gray-600 bg-gray-50 hover:text-gray-50 hover:bg-red-600 hover:border-transparent duration-300 ml-3">
+          <button
+            onClick={() => handleClickInactive()}
+            className="px-3 py-1 my-4 font-semibold border rounded border-gray-600 text-gray-600 bg-gray-50 hover:text-gray-50 hover:bg-red-600 hover:border-transparent duration-300 ml-3"
+          >
             Inactivate
           </button>
-          <span>
+          <span className="ml-2">
             {hasSelected ? `Selected ${selectedRowKeys.length} items` : ""}
           </span>
         </div>
@@ -150,7 +165,11 @@ export default function ManagementProductList() {
         </div>
       </div>
       <Outlet />
-      <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+      <Table
+        rowSelection={rowSelection}
+        columns={columns}
+        dataSource={dataRender}
+      />
     </div>
   );
 }
