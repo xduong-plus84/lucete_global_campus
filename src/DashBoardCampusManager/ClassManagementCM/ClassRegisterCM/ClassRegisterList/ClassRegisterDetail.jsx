@@ -55,7 +55,7 @@ export default function ClassRegisterDetail() {
             </button>
           </li>
           <li className="flex my-2">
-            <p className="font-bold mr-1 ml-4 w-40">Student Number</p>
+            <p className="font-bold mr-1 ml-4 w-40">Number of student</p>
             <Input
               style={{
                 width: 250,
@@ -109,7 +109,7 @@ export default function ClassRegisterDetail() {
             </div>
           </li>
           <li className="flex">
-            <p className="font-bold mr-1 ml-4 w-40">Class Start Date</p>
+            <p className="font-bold mr-1 ml-4 w-40">*Class Start Date</p>
             <DatePicker
               onChange={(date, dateString) => console.log(date, dateString)}
               style={{
@@ -148,20 +148,7 @@ export default function ClassRegisterDetail() {
               ))}
             </div>
           </li>
-          <li className="flex">
-            <p className="font-bold mr-1 ml-4 w-40">Activate</p>
-            <Radio.Group
-              onChange={(e) => {
-                console.log("Activate:", e.target.value);
-                setValueActivate(e.target.value);
-              }}
-              value={valueActivate}
-            >
-              <Radio value={1}>Y</Radio>
-              <Radio value={0}>N</Radio>
-            </Radio.Group>
-          </li>
-          <li className="text-right mt-2">
+          <li className="text-center mt-2">
             <button
               onClick={() => alert("Click Save")}
               className="w-24 px-3 py-1 my-4 font-semibold border rounded border-transparent bg-green-600 text-gray-50 hover:text-gray-50 hover:bg-green-500 duration-300"

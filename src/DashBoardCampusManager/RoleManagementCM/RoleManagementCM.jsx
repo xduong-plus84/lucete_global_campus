@@ -10,13 +10,11 @@ for (let i = 1; i < 46; i++) {
     key: i,
     "no.": `${i}`,
     id: i + 1,
-    sort: "Campus Manager",
-    name: "Edward",
-    gender: "F",
-    country: "Viet Nam",
-    timezone: `GMT +${i}`,
-    startdate: "2022-12-22",
-    resignation: "N",
+    role: `${i % 2 ? "LAB Teacher" : "Coaching Teacher"}`,
+    name: `${i % 2 ? "Edward" : "Joy"}`,
+    gender: `${i % 2 ? "F" : "M"}`,
+    startdate: `${i % 2 ? "2022-03-03" : "2022-05-09"}`,
+    resignation: `${i % 2 ? "Y" : "N"}`,
   });
 }
 
@@ -49,14 +47,11 @@ const optionsRegisnation = [
 
 export default function RoleManagementCM() {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+  let [dataRender, setDataRender] = useState(data);
 
   const onSelectChange = (newSelectedRowKeys) => {
     console.log("selectedRowKeys changed: ", newSelectedRowKeys);
     setSelectedRowKeys(newSelectedRowKeys);
-  };
-
-  const handleClickInactivate = () => {
-    alert("Click Inactivate");
   };
 
   const rowSelection = {
@@ -70,8 +65,8 @@ export default function RoleManagementCM() {
       dataIndex: "no.",
     },
     {
-      title: "Sort",
-      dataIndex: "sort",
+      title: "Role",
+      dataIndex: "role",
     },
     {
       title: "Name",
@@ -80,14 +75,6 @@ export default function RoleManagementCM() {
     {
       title: "Gender",
       dataIndex: "gender",
-    },
-    {
-      title: "Country",
-      dataIndex: "country",
-    },
-    {
-      title: "Timezone",
-      dataIndex: "timezone",
     },
     {
       title: "Start Date",
@@ -101,7 +88,6 @@ export default function RoleManagementCM() {
       title: "Action",
       key: "action",
       render: (_, record) => {
-        console.log(record);
         return (
           <NavLink to={`${url}/${record.id}`}>
             <i className="fa fa-cog"></i>
@@ -110,6 +96,20 @@ export default function RoleManagementCM() {
       },
     },
   ];
+
+  const handleClickInactive = () => {
+    let dataUpdate = [...dataRender];
+    selectedRowKeys.map((key) => {
+      let foundIndex = dataUpdate.findIndex((data) => data.key == key);
+
+      if (foundIndex != -1) {
+        dataUpdate[foundIndex].resignation = "N";
+        dataUpdate[foundIndex].key += new Date().getTime().toString();
+      }
+    });
+    setDataRender(dataUpdate);
+    setSelectedRowKeys([]);
+  };
 
   return (
     <div id="RoleManagementCM">
@@ -121,12 +121,12 @@ export default function RoleManagementCM() {
             </button>
           </NavLink>
           <button
-            onClick={() => handleClickInactivate()}
+            onClick={() => handleClickInactive()}
             className="px-3 py-1 my-4 font-semibold border rounded border-gray-600 text-gray-600 bg-gray-50 hover:text-gray-50 hover:bg-red-600 hover:border-transparent duration-300 ml-3"
           >
             Inactivate
           </button>
-          <span>
+          <span className="ml-2">
             {hasSelected ? `Selected ${selectedRowKeys.length} items` : ""}
           </span>
         </div>
@@ -166,7 +166,11 @@ export default function RoleManagementCM() {
           </button>
         </div>
       </div>
-      <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+      <Table
+        rowSelection={rowSelection}
+        columns={columns}
+        dataSource={dataRender}
+      />
     </div>
   );
 }

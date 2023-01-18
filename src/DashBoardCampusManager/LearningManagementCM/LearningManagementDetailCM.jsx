@@ -1,6 +1,7 @@
-import { DatePicker, Rate, Select } from "antd";
+import { DatePicker, Input, Rate, Select } from "antd";
 import React from "react";
 import { useParams } from "react-router-dom";
+import LearningClassStatus from "./LearningClassStatus";
 const { RangePicker } = DatePicker;
 
 const optionClass = [
@@ -144,6 +145,8 @@ export default function LearningManagementDetailCM() {
       <hr />
       <LearningStatusClassOnline />
       <hr />
+      <LearningStatusClassOffline />
+      <hr />
       <LearningStatusClassCoaching />
       <hr />
       <LearningStatusClassLAB />
@@ -154,7 +157,7 @@ export default function LearningManagementDetailCM() {
 function LearningStatusClassOnline() {
   return (
     <div className="flex items-start justify-evenly my-8">
-      <p className="mr-8 mt-4">Online</p>
+      <p className="mr-8 mt-4 w-20">Online</p>
       <div className="p-4 border-2 rounded-lg">
         <div className="flex my-2">
           <p className="font-bold mr-2 w-32">Date:</p>
@@ -198,244 +201,143 @@ function LearningStatusClassOnline() {
   );
 }
 
-function LearningStatusClassCoaching() {
-  const renderLayoutCoaching1 = () => {
-    return (
-      <div className="flex items-start justify-evenly my-8">
-        <p className="mr-8 mt-4">Coaching</p>
-        <div className="p-4 border-2 rounded-lg">
-          <div className="flex my-2">
-            <p className="font-bold mr-2 w-32">Date:</p>
-            <p>2022.11.01</p>
-          </div>
-          <div className="flex my-2">
-            <p className="font-bold mr-2 w-32">Subject:</p>
-            <p>Coaching 1</p>
-          </div>
-          <div className="flex my-2">
-            <p className="font-bold mr-2 w-32">Teacher:</p>
-            <p>Erika</p>
-          </div>
-          <div className="flex my-2">
-            <p className="font-bold mr-2 w-32">Status:</p>
-            <p>E8-1 Unit 2</p>
-          </div>
-        </div>
-        <div className="p-4 border-2 rounded-lg">
-          <div className="flex my-2">
-            <p className="font-bold mr-2 w-36 mt-3">Undone Activity:</p>
-            <ul className="flex flex-col items-center">
-              <li className="my-1 p-2 border rounded-xl w-full flex justify-between items-center">
-                <span className="mr-2 w-40">R/C Mark</span>
-                <i className="w-12 text-gray-400 text-xs">10 mins</i>
-              </li>
-              <li className="my-1 p-2 border rounded-xl w-full flex justify-between items-center">
-                <span className="mr-2 w-40">Textbook</span>
-                <i className="w-12 text-gray-400 text-xs">10 mins</i>
-              </li>
-            </ul>
-          </div>
-          <div className="flex my-2">
-            <p className="font-bold mr-2 w-36 mt-3">Test Score:</p>
-            <ul className="flex flex-col items-center">
-              <li className="my-1 p-2 border rounded-xl w-full flex justify-between items-center">
-                <span className="mr-2 w-40">Writing Test</span>
-                <i className="w-12 text-gray-400 text-xs">85</i>
-              </li>
-              <li className="my-1 p-2 border rounded-xl w-full flex justify-between items-center">
-                <span className="mr-2 w-40">Translate Test</span>
-                <i className="w-12 text-gray-400 text-xs">80</i>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    );
-  };
-  const renderLayoutCoaching2 = () => {
-    return (
-      <div className="flex items-start justify-evenly my-8">
-        <p className="mr-8 mt-4">Coaching</p>
-        <div className="p-4 border-2 rounded-lg">
-          <div className="flex my-2">
-            <p className="font-bold mr-2 w-32">Date:</p>
-            <p>2022.11.01</p>
-          </div>
-          <div className="flex my-2">
-            <p className="font-bold mr-2 w-32">Subject:</p>
-            <p>Coaching 1</p>
-          </div>
-          <div className="flex my-2">
-            <p className="font-bold mr-2 w-32">Teacher:</p>
-            <p>Erika</p>
-          </div>
-          <div className="flex my-2">
-            <p className="font-bold mr-2 w-32">Status:</p>
-            <p>E8-1 Unit 2</p>
-          </div>
-        </div>
-        <div className="p-4 border-2 rounded-lg">
-          <div className="flex my-2">
-            <p className="font-bold mr-2 w-36 mt-3">Undone Activity:</p>
-            <ul className="flex flex-col items-center">
-              <li className="my-1 p-2 rounded-xl w-full flex justify-between items-center">
-                <span className="mr-2 w-40">All done</span>
-                <i className="w-12 text-gray-400 text-xs"></i>
-              </li>
-            </ul>
-          </div>
-          <div className="flex my-2">
-            <p className="font-bold mr-2 w-36 mt-3">Test Score:</p>
-            <ul className="flex flex-col items-center">
-              <li className="my-1 p-2 rounded-xl w-full flex justify-between items-center">
-                <span className="mr-2 w-40">None</span>
-                <i className="w-12 text-gray-400 text-xs"></i>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    );
+function LearningStatusClassOffline() {
+  const handleClickEdit = () => {
+    alert("Handle Click Edit");
   };
   return (
-    <div>
-      {renderLayoutCoaching1()}
-      <hr />
-      {renderLayoutCoaching2()}
+    <div className="flex items-start justify-evenly my-8">
+      <p className="mr-8 mt-4 w-20">Offline</p>
+      <div className="p-4 border-2 rounded-lg">
+        <div className="flex my-2">
+          <p className="font-bold mr-2 w-32">Date:</p>
+          <p>2022.11.01</p>
+        </div>
+        <div className="flex my-2">
+          <p className="font-bold mr-2 w-32">Subject:</p>
+          <p>Coaching 1</p>
+        </div>
+        <div className="flex my-2">
+          <p className="font-bold mr-2 w-32">Teacher:</p>
+          <p>Erika</p>
+        </div>
+        <div className="flex my-2">
+          <p className="font-bold mr-2 w-32">Status:</p>
+          <p>E8-1 Unit 2</p>
+        </div>
+      </div>
+      <div className="p-4 border-2 rounded-lg">
+        <div className="flex items-center my-2 mt-3">
+          <p className="font-bold mr-2 w-36 shrink-0">Undone Activity:</p>
+          <Input />
+        </div>
+        <div className="flex my-2 mt-3">
+          <p className="font-bold mr-2 w-36 shrink-0">Test Score:</p>
+          <Input />
+        </div>
+        <div className="text-right">
+          <button
+            onClick={() => handleClickEdit()}
+            className="w-16 font-semibold border rounded border-transparent bg-gray-600 text-gray-50 hover:text-gray-50 hover:bg-gray-500 duration-300"
+          >
+            Edit
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function LearningStatusClassCoaching() {
+  const handleClickEdit = () => {
+    alert("Handle Click Edit");
+  };
+  return (
+    <div className="flex items-start justify-evenly my-8">
+      <p className="mr-8 mt-4 w-20">Coaching</p>
+      <div className="p-4 border-2 rounded-lg">
+        <div className="flex my-2">
+          <p className="font-bold mr-2 w-32">Date:</p>
+          <p>2022.11.01</p>
+        </div>
+        <div className="flex my-2">
+          <p className="font-bold mr-2 w-32">Subject:</p>
+          <p>Coaching 1</p>
+        </div>
+        <div className="flex my-2">
+          <p className="font-bold mr-2 w-32">Teacher:</p>
+          <p>Erika</p>
+        </div>
+        <div className="flex my-2">
+          <p className="font-bold mr-2 w-32">Status:</p>
+          <p>E8-1 Unit 2</p>
+        </div>
+      </div>
+      <div className="p-4 border-2 rounded-lg">
+        <div className="flex items-center my-2 mt-3">
+          <p className="font-bold mr-2 w-36 shrink-0">Undone Activity:</p>
+          <Input />
+        </div>
+        <div className="flex my-2 justify-center mt-3">
+          <p className="font-bold mr-2 w-36 shrink-0">Test Score:</p>
+          <Input />
+        </div>
+        <div className="text-right">
+          <button
+            onClick={() => handleClickEdit()}
+            className="w-16 font-semibold border rounded border-transparent bg-gray-600 text-gray-50 hover:text-gray-50 hover:bg-gray-500 duration-300"
+          >
+            Edit
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
 
 function LearningStatusClassLAB() {
-  const renderLayoutLAB1 = () => {
-    return (
-      <div className="flex items-start justify-evenly my-8">
-        <p className="mr-8 mt-4">LAB</p>
-        <div className="p-4 border-2 rounded-lg">
-          <div className="flex my-2">
-            <p className="font-bold mr-2 w-32">Date:</p>
-            <p>2022.11.01</p>
-          </div>
-          <div className="flex my-2">
-            <p className="font-bold mr-2 w-32">Subject:</p>
-            <p>LAB 1</p>
-          </div>
-          <div className="flex my-2">
-            <p className="font-bold mr-2 w-32">Teacher:</p>
-            <p>Linda</p>
-          </div>
-          <div className="flex my-2">
-            <p className="font-bold mr-2 w-32">Status:</p>
-            <p>E8-1 Unit 2</p>
-          </div>
-        </div>
-        <div className="p-4 border-2 rounded-lg">
-          <div className="flex my-2">
-            <p className="font-bold mr-2 w-36 mt-3">Undone Activity:</p>
-            <ul className="flex flex-col items-center">
-              <li className="my-1 p-2 border rounded-xl w-full flex justify-between items-center">
-                <span className="mr-2 w-40">Voca Test</span>
-                <i className="w-12 text-gray-400 text-xs">5 mins</i>
-              </li>
-            </ul>
-          </div>
-          <div className="flex my-2">
-            <p className="font-bold mr-2 w-36 mt-3">Test Score:</p>
-            <ul className="flex flex-col items-center">
-              <li className="my-1 p-2 border rounded-xl w-full flex justify-between items-center">
-                <span className="mr-2 w-40">
-                  Voca <br />
-                  E8 Test 13
-                </span>
-                <i className="w-12 text-gray-400 text-xs">80</i>
-              </li>
-              <li className="my-1 p-2 border rounded-xl w-full flex justify-between items-center">
-                <span className="mr-2 w-40">
-                  Wing <br />
-                  E8 Unit 13
-                </span>
-                <i className="w-12 text-gray-400 text-xs">Submitted</i>
-              </li>
-              <li className="my-1 p-2 border rounded-xl w-full flex justify-between items-center">
-                <span className="mr-2 w-40">
-                  SUDA <br />
-                  E8 5-1
-                </span>
-                <i className="w-12 text-gray-400 text-xs">Done</i>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    );
-  };
-  const renderLayoutLAB2 = () => {
-    return (
-      <div className="flex items-start justify-evenly my-8">
-        <p className="mr-8 mt-4">LAB</p>
-        <div className="p-4 border-2 rounded-lg">
-          <div className="flex my-2">
-            <p className="font-bold mr-2 w-32">Date:</p>
-            <p>2022.11.01</p>
-          </div>
-          <div className="flex my-2">
-            <p className="font-bold mr-2 w-32">Subject:</p>
-            <p>LAB 2</p>
-          </div>
-          <div className="flex my-2">
-            <p className="font-bold mr-2 w-32">Teacher:</p>
-            <p>Linda</p>
-          </div>
-          <div className="flex my-2">
-            <p className="font-bold mr-2 w-32">Status:</p>
-            <p>E8-1 Unit 2</p>
-          </div>
-        </div>
-        <div className="p-4 border-2 rounded-lg">
-          <div className="flex my-2">
-            <p className="font-bold mr-2 w-36 mt-3">Undone Activity:</p>
-            <ul className="flex flex-col items-center">
-              <li className="my-1 p-2 rounded-xl w-full flex justify-between items-center">
-                <span className="mr-2 w-40">All Done</span>
-                <i className="w-12 text-gray-400 text-xs"></i>
-              </li>
-            </ul>
-          </div>
-          <div className="flex my-2">
-            <p className="font-bold mr-2 w-36 mt-3">Test Score:</p>
-            <ul className="flex flex-col items-center">
-              <li className="my-1 p-2 border rounded-xl w-full flex justify-between items-center">
-                <span className="mr-2 w-40">
-                  LAT <br />
-                  E8 Test 12
-                </span>
-                <i className="w-12 text-gray-400 text-xs">90</i>
-              </li>
-              <li className="my-1 p-2 border rounded-xl w-full flex justify-between items-center">
-                <span className="mr-2 w-40">
-                  Grammar <br />
-                  Inter Chap 5 unit 13
-                </span>
-                <i className="w-12 text-gray-400 text-xs">75</i>
-              </li>
-              <li className="my-1 p-2 border rounded-xl w-full flex justify-between items-center">
-                <span className="mr-2 w-40">
-                  Grammar <br />
-                  Inter Chap 5 unit 3 Unit Test
-                </span>
-                <i className="w-12 text-gray-400 text-xs">90</i>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    );
+  const handleClickEdit = () => {
+    alert("Handle Click Edit");
   };
   return (
-    <div>
-      {renderLayoutLAB1()}
-      <hr />
-      {renderLayoutLAB2()}
+    <div className="flex items-start justify-evenly my-8">
+      <p className="mr-8 mt-4 w-20">LAB</p>
+      <div className="p-4 border-2 rounded-lg">
+        <div className="flex my-2">
+          <p className="font-bold mr-2 w-32">Date:</p>
+          <p>2022.11.01</p>
+        </div>
+        <div className="flex my-2">
+          <p className="font-bold mr-2 w-32">Subject:</p>
+          <p>LAB 2</p>
+        </div>
+        <div className="flex my-2">
+          <p className="font-bold mr-2 w-32">Teacher:</p>
+          <p>Linda</p>
+        </div>
+        <div className="flex my-2">
+          <p className="font-bold mr-2 w-32">Status:</p>
+          <p>E8-1 Unit 2</p>
+        </div>
+      </div>
+      <div className="p-4 border-2 rounded-lg">
+        <div className="flex my-2 items-center mt-3">
+          <p className="font-bold mr-2 w-36 shrink-0">Undone Activity:</p>
+          <Input />
+        </div>
+        <div className="flex my-2 items-center mt-3">
+          <p className="font-bold mr-2 w-36 shrink-0">Test Score:</p>
+          <Input />
+        </div>
+        <div className="text-right">
+          <button
+            onClick={() => handleClickEdit()}
+            className="w-16 font-semibold border rounded border-transparent bg-gray-600 text-gray-50 hover:text-gray-50 hover:bg-gray-500 duration-300"
+          >
+            Edit
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

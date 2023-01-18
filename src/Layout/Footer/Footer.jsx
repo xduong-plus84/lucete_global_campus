@@ -100,7 +100,7 @@ export default function Footer() {
           <p className="text-white text-sm text-center sm:text-left">
             © 2022 EnglishWing —
             <a
-              href="https://twitter.com/knyttneve"
+              href="https:"
               rel="noopener noreferrer"
               className="text-white ml-1"
               target="_blank"

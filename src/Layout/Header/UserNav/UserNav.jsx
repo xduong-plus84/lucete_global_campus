@@ -122,7 +122,7 @@ export default function UserNav() {
       key: "1",
       label: (
         <NavLink
-          to={`/dash-board-teacher/${userInfor.ma}`}
+          to={`/dash-board-parents/${userInfor.ma}`}
           className="flex items-center justify-between py-2 w-48"
         >
           <img
@@ -160,7 +160,7 @@ export default function UserNav() {
       key: "1",
       label: (
         <NavLink
-          to={`/dash-board-teacher/${userInfor.ma}`}
+          to={`/dash-board-admin/role-management`}
           className="flex items-center justify-between py-2 w-48"
         >
           <img
@@ -207,7 +207,7 @@ export default function UserNav() {
       key: "1",
       label: (
         <NavLink
-          to={`/dash-board-teacher/${userInfor.ma}`}
+          to={`/campus-manager/role-management`}
           className="flex items-center justify-between py-2 w-48"
         >
           <img
